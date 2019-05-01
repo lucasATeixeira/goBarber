@@ -1,0 +1,24 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+
+  <div class="content">
+    <strong>Horários Agendados</strong>
+
+    <div class="provider">
+      <div>
+        <img src="/files/{{ cliente.avatar }}" />
+        <strong>{{ cliente.name }}</strong>
+      </div>
+    </div>
+
+    <div class="appointments">
+      {% for date in dates %}
+        <p> {{ date }} </p>
+      {% endfor %}
+    </div>
+
+    <a class="logout" href="/app/provider_dashboard">Voltar</a>
+  </div>
+
+{% endblock %}

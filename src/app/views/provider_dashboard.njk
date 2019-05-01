@@ -1,0 +1,36 @@
+{% extends "_layouts/default.njk" %}
+
+{% block body %}
+  <div class="content">
+    <strong>Olá, {{ user.name }}</strong>
+    <p>Aqui estão os cortes de hoje e amanhã</p>
+
+    <ul class="providers">
+      {% for user in userAppointments %}
+        <li class="provider">
+          <div>
+            <img src="/files/{{ user.user.avatar }}" />
+            <strong>{{ user.user.name }}</strong>
+          </div>
+          <p>{{user.date}}</p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {# <p>Aqui está a lista de Clientes que agendaram serviços com você<p>
+
+    <ul class="providers">
+      {% for user in users %}
+        <li class="provider">
+          <div>
+            <img src="/files/{{ user.avatar }}" />
+            <strong>{{ user.name }}</strong>
+          </div>
+          <a href="/app/appointments/show/{{ user.id }}">+</a>
+        </li>
+      {% endfor %}
+    </ul> #}
+
+    <a href="/app/logout" class="logout">Sair</a>
+  </div>
+{% endblock %}
